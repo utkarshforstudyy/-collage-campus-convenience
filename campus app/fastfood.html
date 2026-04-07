@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fast Food</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🍔 Fast Food Corner</h1>
+</header>
+
+<div class="container">
+
+  <div class="product-card">
+    <img src="">
+    <div class="details">
+      <h3>Burger</h3>
+      <p>₹60</p>
+
+      <input type="number" id="qty" placeholder="Qty">
+      <input type="text" id="room" placeholder="Room No">
+
+      <button onclick="orderNow('Burger',60)">Order</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function orderNow(item, price) {
+  let qty = document.getElementById("qty").value;
+  let room = document.getElementById("room").value;
+
+  let phone = "8081699253";
+
+  let message = `🧾 New Order
+
+Item: ${item}
+Qty: ${qty}
+Price: ₹${price}
+
+📍 Room: ${room}
+⏰ Time: ${new Date().toLocaleTimeString()}`;
+
+  let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
